@@ -51,6 +51,13 @@ class SearchSettings(BaseModel):
     )
 
 
+class NotebookLMSettings(BaseModel):
+    """Configuration for NotebookLM Google login"""
+
+    email: str = Field(..., description="Google account email for NotebookLM login")
+    password: str = Field(..., description="Google account password for NotebookLM login")
+
+
 class BrowserSettings(BaseModel):
     headless: bool = Field(False, description="Whether to run browser in headless mode")
     disable_security: bool = Field(
@@ -110,6 +117,9 @@ class AppConfig(BaseModel):
         None, description="Search configuration"
     )
     mcp_config: Optional[MCPSettings] = Field(None, description="MCP configuration")
+    notebooklm: Optional[NotebookLMSettings] = Field(
+        None, description="NotebookLM login configuration"
+    )
 
     class Config:
         arbitrary_types_allowed = True
@@ -219,6 +229,11 @@ class Config:
         else:
             mcp_settings = MCPSettings()
 
+        notebooklm_config = raw_config.get("notebooklm", {})
+        notebooklm_settings = None
+        if notebooklm_config:
+            notebooklm_settings = NotebookLMSettings(**notebooklm_config)
+
         config_dict = {
             "llm": {
                 "default": default_settings,
@@ -231,6 +246,7 @@ class Config:
             "browser_config": browser_settings,
             "search_config": search_settings,
             "mcp_config": mcp_settings,
+            "notebooklm": notebooklm_settings,
         }
 
         self._config = AppConfig(**config_dict)
@@ -255,6 +271,10 @@ class Config:
     def mcp_config(self) -> MCPSettings:
         """Get the MCP configuration"""
         return self._config.mcp_config
+
+    @property
+    def notebooklm(self) -> Optional[NotebookLMSettings]:
+        return self._config.notebooklm
 
     @property
     def workspace_root(self) -> Path:

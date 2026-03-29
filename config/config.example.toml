@@ -91,6 +91,11 @@ temperature = 0.0                          # Controls randomness for vision mode
 #timeout = 300
 #network_enabled = true
 
+# NotebookLM Google login configuration
+# [notebooklm]
+# email = "your-google-email@gmail.com"
+# password = "your-google-password"
+
 # MCP (Model Context Protocol) configuration
 [mcp]
 server_reference = "app.mcp.server" # default server module reference
