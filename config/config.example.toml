@@ -109,3 +109,22 @@ server_reference = "app.mcp.server" # default server module reference
 # 4. Token will be saved to token.json for future use
 #
 # No configuration needed here - the tool will handle authentication automatically
+
+# Microsoft Todo configuration (optional)
+# [microsoft_todo]
+# For service principal authentication (recommended for servers):
+# Set the following environment variables:
+# export AZURE_TENANT_ID="your-tenant-id"
+# export AZURE_CLIENT_ID="your-client-id"
+# export AZURE_CLIENT_SECRET="your-client-secret"
+#
+# For interactive authentication (local development):
+# The tool will prompt you to authenticate in a browser on first use
+#
+# To set up Microsoft Graph API access:
+# 1. Go to https://portal.azure.com
+# 2. Register a new application
+# 3. Grant permissions for Microsoft Graph API (Tasks.ReadWrite)
+# 4. Create a client secret for the application
+#
+# No configuration needed here - the tool will handle authentication automatically

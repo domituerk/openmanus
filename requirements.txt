@@ -40,3 +40,7 @@ google-auth-oauthlib~=1.2.0
 google-auth-httplib2~=0.2.0
 google-api-python-client~=2.107.0
 python-dateutil~=2.8.2
+
+# Microsoft Todo API dependencies
+azure-identity~=1.16.0
+msgraph-core~=1.1.0
