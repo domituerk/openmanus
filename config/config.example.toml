@@ -94,3 +94,18 @@ temperature = 0.0                          # Controls randomness for vision mode
 # MCP (Model Context Protocol) configuration
 [mcp]
 server_reference = "app.mcp.server" # default server module reference
+
+# Google Calendar configuration (optional)
+# [google_calendar]
+# For service account authentication (recommended for servers):
+# Set the GOOGLE_APPLICATION_CREDENTIALS environment variable to point to your service account JSON file
+# export GOOGLE_APPLICATION_CREDENTIALS="/path/to/service-account-key.json"
+#
+# For OAuth2 authentication (interactive, for local development):
+# 1. Create a credentials.json file from Google Cloud Console
+#    (Download OAuth 2.0 Client ID credentials for Desktop application)
+# 2. Place it in the project root directory
+# 3. First run will prompt you to authenticate in a browser
+# 4. Token will be saved to token.json for future use
+#
+# No configuration needed here - the tool will handle authentication automatically
